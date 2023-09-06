@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AiAnimationComponent } from './ai-animation/ai-animation.component';
+import { ConnectingDotsComponent } from './components/backgrounds/connecting-dots/connecting-dots.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: AiAnimationComponent
+    path: 'connectingdots',
+    component: ConnectingDotsComponent
   }
 ];
 

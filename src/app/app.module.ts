@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AiAnimationComponent } from './ai-animation/ai-animation.component';
+import { ConnectingDotsComponent } from './components/backgrounds/connecting-dots/connecting-dots.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AiAnimationComponent
+    ConnectingDotsComponent
   ],
   imports: [
     BrowserModule,

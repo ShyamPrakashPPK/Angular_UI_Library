@@ -9,36 +9,33 @@ interface Star {
 }
 
 @Component({
-  selector: 'app-ai-animation',
-  templateUrl: './ai-animation.component.html',
-  styleUrls: ['./ai-animation.component.css']
+  selector: 'app-connecting-dots',
+  templateUrl: './connecting-dots.component.html',
+  styleUrls: ['./connecting-dots.component.css']
 })
-
-export class AiAnimationComponent implements OnInit {
-  private canvas!: HTMLCanvasElement;
+export class ConnectingDotsComponent implements OnInit{
+ private canvas!: HTMLCanvasElement;
   private ctx!: CanvasRenderingContext2D;
   private stars: Star[] = [];
-  private x = 100; // Declare 'x' as a property and assign the desired value
+  private x = 100;
 
-  private FPS = 60;
+  // use this to adjust the speed of movements
+  private FPS = 50;
   private mouse = { x: 0, y: 0 };
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
     // Get the canvas element from the template using Renderer2
-    this.canvas = this.renderer.selectRootElement('#yourCanvasId'); // Replace with the actual ID of your canvas
+    this.canvas = this.renderer.selectRootElement('#Canvas1');
 
     if (!this.canvas) {
       console.error('Canvas element not found.');
       return;
     }
-
     this.ctx = this.canvas.getContext('2d')!;
-
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-
     for (let i = 0; i < this.x; i++) {
       this.stars.push({
         x: Math.random() * this.canvas.width,
@@ -48,10 +45,8 @@ export class AiAnimationComponent implements OnInit {
         vy: Math.floor(Math.random() * 50) - 25
       });
     }
-
     this.tick();
   }
-
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
